@@ -4,7 +4,6 @@
 -- SO del servidor:              Win64
 -- HeidiSQL Versión:             11.0.0.5919
 -- --------------------------------------------------------
-DROP DATABASE TechZone;
 
 CREATE DATABASE TechZone;
 
