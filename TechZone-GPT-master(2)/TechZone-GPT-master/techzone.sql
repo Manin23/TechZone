@@ -4,6 +4,13 @@
 -- SO del servidor:              Win64
 -- HeidiSQL Versión:             11.0.0.5919
 -- --------------------------------------------------------
+DROP DATABASE TechZone;
+
+CREATE DATABASE TechZone;
+
+USE TechZone;
+
+SET FOREIGN_KEY_CHECKS = 0;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
@@ -232,11 +239,12 @@ REPLACE INTO `inventory` (`id`, `product_id`, `location_id`, `date_id`, `quantit
 DROP TABLE IF EXISTS `locations`;
 CREATE TABLE IF NOT EXISTS `locations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla techzone.locations: ~40 rows (aproximadamente)
 /*!40000 ALTER TABLE `locations` DISABLE KEYS */;
@@ -290,11 +298,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   `name` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `cost` decimal(10,2) NOT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_id` (`category_id`),
-  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla techzone.products: ~37 rows (aproximadamente)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
